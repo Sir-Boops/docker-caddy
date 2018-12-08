@@ -16,4 +16,4 @@ COPY --from=build-container /go/src/github.com/mholt/caddy/caddy/caddy /opt/cadd
 
 WORKDIR /opt
 ENV CADDYPATH="/opt/.caddy"
-CMD /opt/caddy -agree -log stdout -conf /opt/caddyfile
+CMD /opt/caddy -agree -disabled-metrics -log stdout -conf /opt/caddyfile
