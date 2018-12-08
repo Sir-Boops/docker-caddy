@@ -1,6 +1,7 @@
 FROM golang:1.11.2-alpine3.8 as build-container
 
 ENV CAD_VER="v0.11.1"
+ENV enableTelemetry="false"
 
 RUN apk add -U git && \
     go get github.com/mholt/caddy/caddy && \
@@ -16,4 +17,4 @@ COPY --from=build-container /go/src/github.com/mholt/caddy/caddy/caddy /opt/cadd
 
 WORKDIR /opt
 ENV CADDYPATH="/opt/.caddy"
-CMD /opt/caddy -agree -disabled-metrics -log stdout -conf /opt/caddyfile
+CMD /opt/caddy -agree -log stdout -conf /opt/caddyfile
