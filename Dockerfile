@@ -1,13 +1,13 @@
 FROM golang:1.11.2-alpine3.8 as build-container
 
 ENV CAD_VER="v0.11.1"
-ENV enableTelemetry="false"
 
 RUN apk add -U git && \
     go get github.com/mholt/caddy/caddy && \
     go get github.com/caddyserver/builds && \
     cd $GOPATH/src/github.com/mholt/caddy/caddy && \
     git checkout tags/$CAD_VER && \
+    sed -i 's/var EnableTelemetry = true/var EnableTelemetry = false/g' caddymain/run.go && \
     go run build.go
 
 FROM alpine:3.8
