@@ -15,4 +15,5 @@ RUN apk add -U --no-cache ca-certificates
 COPY --from=build-container /go/src/github.com/mholt/caddy/caddy/caddy /opt/caddy
 
 WORKDIR /opt
-CMD /opt/caddy -agree -conf /opt/caddyfile
+ENV CADDYPATH="/opt/.caddy"
+CMD /opt/caddy -agree -log stdout -conf /opt/caddyfile
