@@ -5,9 +5,11 @@ ENV CAD_VER="v0.11.1"
 RUN apk add -U git && \
     go get github.com/mholt/caddy/caddy && \
     go get github.com/caddyserver/builds && \
-    cd $GOPATH/src/github.com/mholt/caddy/caddy && \
+    cd $GOPATH/src/github.com/mholt/caddy && \
     git checkout tags/$CAD_VER && \
-    sed -i 's/var EnableTelemetry = true/var EnableTelemetry = false/g' caddymain/run.go && \
+    sed -i 's/var EnableTelemetry = true/var EnableTelemetry = false/g' caddy/caddymain/run.go && \
+    sed -i 's/w.Header().Set("Server", caddy.AppName)//g' caddyhttp/httpserver/server.go && \
+    cd caddy && \
     go run build.go
 
 FROM alpine:3.8
