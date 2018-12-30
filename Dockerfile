@@ -1,4 +1,4 @@
-FROM golang:1.11.2-alpine3.8 as build-container
+FROM golang:1.11.4-alpine3.8 as build-container
 
 ENV CAD_VER="v0.11.1"
 
