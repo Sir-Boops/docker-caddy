@@ -1,8 +1,10 @@
 FROM golang:1.11.4-alpine3.8 as build-container
 
+# Set versions
 ENV CAD_VER="v0.11.1"
 ENV CAD_CAH="v0.3.1"
 
+# Build caddy
 RUN apk add -U git && \
 	go get github.com/mholt/caddy/caddy && \
 	go get github.com/caddyserver/builds && \
@@ -23,9 +25,12 @@ RUN apk add -U git && \
 
 FROM alpine:3.8
 
+# Setup new container
 RUN apk add -U --no-cache ca-certificates
 COPY --from=build-container /go/src/github.com/mholt/caddy/caddy/caddy /opt/caddy
 
+# Set container options
 WORKDIR /opt
 ENV CADDYPATH="/opt/.caddy"
+VOLUME /opt/.caddy
 CMD /opt/caddy -agree -log stdout -conf /opt/caddyfile
