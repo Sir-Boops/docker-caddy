@@ -1,7 +1,7 @@
 FROM golang:1.11.5-alpine3.8 as build-container
 
 # Set versions
-ENV CAD_VER="v0.11.2"
+ENV CAD_VER="v0.11.3"
 ENV CAD_CAH="v0.3.1"
 
 # Build caddy
