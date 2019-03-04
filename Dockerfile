@@ -1,7 +1,7 @@
-FROM golang:1.11.5-alpine3.8 as build-container
+FROM golang:1.12.0-alpine3.9 as build-container
 
 # Set versions
-ENV CAD_VER="v0.11.4"
+ENV CAD_VER="v0.11.5"
 ENV CAD_CAH="v0.3.1"
 
 # Build caddy
@@ -23,7 +23,7 @@ RUN apk add -U git && \
 	cd caddy && \
 	go run build.go
 
-FROM alpine:3.8
+FROM alpine:3.9
 
 # Setup new container
 RUN apk add -U --no-cache ca-certificates
