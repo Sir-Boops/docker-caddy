@@ -17,6 +17,7 @@ RUN apk add git && \
 	go build
 
 # Setup new container
+FROM alpine:3.9
 RUN apk add -U --no-cache ca-certificates
 COPY --from=build-container /root/caddy /opt/caddy
 
