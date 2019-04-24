@@ -1,4 +1,4 @@
-To use in a docker-compose.yml file
+To use put it in a docker-compose.yml file
 
 `volumes:`
 `  - ./caddyfile:/opt/caddyfile`
