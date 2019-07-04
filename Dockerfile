@@ -16,7 +16,7 @@ RUN apk add git && \
 	go get github.com/mholt/caddy@${CAD_VER} && \
 	go build
 
-# Setup new container
+# Setup new container 
 FROM alpine:3.10
 RUN apk add -U --no-cache ca-certificates
 COPY --from=build-container /root/caddy /opt/caddy
