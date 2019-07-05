@@ -1,8 +1,8 @@
 package main
 
 import (
+	"github.com/caddyserver/caddy/caddy/caddymain"
 	_ "github.com/caddyserver/dnsproviders/cloudflare"
-	"github.com/mholt/caddy/caddy/caddymain"
 	_ "github.com/nicolasazrak/caddy-cache"
 )
 
