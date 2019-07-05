@@ -13,7 +13,7 @@ COPY ./main.go /root/
 RUN apk add git && \
 	cd ~ && \
 	go mod init caddy && \
-	go get github.com/mholt/caddy@${CAD_VER} && \
+	go get github.com/caddyserver/caddy@${CAD_VER} && \
 	go build
 
 # Setup new container 
