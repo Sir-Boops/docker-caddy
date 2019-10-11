@@ -1,4 +1,4 @@
-FROM golang:1.12.6-alpine3.10 as build-container
+FROM golang:1.13.1-alpine as build-container
 
 # Set versions
 ENV CAD_VER="v1.0.3"
