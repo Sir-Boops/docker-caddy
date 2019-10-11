@@ -1,7 +1,7 @@
 FROM golang:1.12.6-alpine3.10 as build-container
 
 # Set versions
-ENV CAD_VER="v1.0.1"
+ENV CAD_VER="v1.0.3"
 
 # Set Needed Build flags
 ENV GO111MODULE="on"
